@@ -1,0 +1,23 @@
+{ decls }
+namespace art {  }
+namespace triggersim { class BasicTrigger; }
+namespace art { template <typename T> class PtrVector; }
+namespace art { template <typename T> class Wrapper; }
+namespace std {  }
+namespace Hardware {  }
+namespace triggersim {  }
+
+[ libdune_DAQTriggerSim_TriggerDataProducts_dict.so ]
+# List of selected classes
+class Hardware::HardwareID
+class art::Ptr<triggersim::BasicTrigger>
+class art::PtrVector<triggersim::BasicTrigger>
+class art::Wrapper<std::vector<art::PtrVector<triggersim::BasicTrigger> > >
+class art::Wrapper<std::vector<triggersim::BasicTrigger> >
+class art::Wrapper<vector<art::PtrVector<triggersim::BasicTrigger> > >
+class art::Wrapper<vector<triggersim::BasicTrigger> >
+class triggersim::BasicTrigger
+class vector<art::PtrVector<triggersim::BasicTrigger> >
+class vector<triggersim::BasicTrigger>
+header HardwareElements.h
+header BasicTrigger.h

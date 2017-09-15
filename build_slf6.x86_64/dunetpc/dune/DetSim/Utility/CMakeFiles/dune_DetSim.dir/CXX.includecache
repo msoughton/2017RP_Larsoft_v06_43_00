@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Utility/AdcCodeHelper.cxx
+dune/DetSim/Utility/AdcCodeHelper.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Utility/dune/DetSim/Utility/AdcCodeHelper.h
+cmath
+-
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Utility/AdcCodeHelper.h
+dune/DuneInterface/AdcTypes.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Utility/dune/DuneInterface/AdcTypes.h
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Utility/SignalTypeConverter.cxx
+dune/DetSim/Utility/SignalTypeConverter.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Utility/dune/DetSim/Utility/SignalTypeConverter.h
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Utility/SignalTypeConverter.h
+type_traits
+-
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DuneInterface/AdcTypes.h
+vector
+-
+utility
+-
+

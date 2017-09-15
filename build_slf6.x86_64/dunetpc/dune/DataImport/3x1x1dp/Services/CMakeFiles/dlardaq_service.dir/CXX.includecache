@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataImport/3x1x1dp/Services/LogMsg.h
+ostream
+-
+iostream
+-
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataImport/3x1x1dp/Services/dlardaq.h
+exception
+-
+vector
+-
+ctime
+-
+stdint.h
+-
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataImport/3x1x1dp/Services/dlardaq_service.cc
+iomanip
+-
+sstream
+-
+fstream
+-
+limits
+-
+cstdlib
+-
+string.h
+-
+assert.h
+-
+dlardaq.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataImport/3x1x1dp/Services/dlardaq.h
+LogMsg.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataImport/3x1x1dp/Services/LogMsg.h
+

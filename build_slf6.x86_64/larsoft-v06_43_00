@@ -1,0 +1,70 @@
+# UPS_OVERRIDE is already -B
+setenv CETPKG_NAME larsoft
+setenv CETPKG_VERSION v06_43_00
+setenv CETPKG_QUAL e14:debug
+setenv CETPKG_TYPE Debug
+setenv CETPKG_CC gcc
+setenv CETPKG_CXX g++
+setenv CETPKG_FC gfortran
+set_ setup_fail="false"
+setup -B cetbuildtools v5_09_01
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B cetbuildtools v5_09_01 failed"
+test "$setup_fail" =  "true" && echo "ERROR: Please type \"unsetup cetbuildtools\" and \"unsetup cmake\""
+test "$setup_fail" =  "true" && return 1
+set_ setup_fail="false"
+setup -B cetpkgsupport 
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B cetpkgsupport failed"
+test "$setup_fail" =  "true" && return 1
+# setup products
+# Configuring dunetpc
+set_ setup_fail="false"
+setup -B larsoft v06_43_00 -q +e14:+debug
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B larsoft v06_43_00 -q +e14:+debug failed"
+test "$setup_fail" =  "true" && echo "ERROR: For more information, type \"ups depend larsoft v06_43_00 -q +e14:+debug\""
+test "$setup_fail" =  "true" && echo "                             or \"ups list -aK+ larsoft v06_43_00\""
+test "$setup_fail" =  "true" && return 1
+# setup of duneutil is optional
+unset have_prod
+ups exist duneutil v06_42_00 -q +e14:+debug
+test "$?" = 0 && set_ have_prod="true"
+test "$have_prod" = "true" || echo "INFO: no optional setup of duneutil v06_42_00 -q +e14:+debug"
+test "$have_prod" = "true" && setup -B duneutil v06_42_00 -q +e14:+debug 
+unset have_prod
+set_ setup_fail="false"
+setup -B artdaq_core v1_07_08 -q +nu:+e14:+s50:+debug
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B artdaq_core v1_07_08 -q +nu:+e14:+s50:+debug failed"
+test "$setup_fail" =  "true" && echo "ERROR: For more information, type \"ups depend artdaq_core v1_07_08 -q +nu:+e14:+s50:+debug\""
+test "$setup_fail" =  "true" && echo "                             or \"ups list -aK+ artdaq_core v1_07_08\""
+test "$setup_fail" =  "true" && return 1
+set_ setup_fail="false"
+setup -B lbne_raw_data v1_04_13 -q +nu:+e14:+s50:+debug
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B lbne_raw_data v1_04_13 -q +nu:+e14:+s50:+debug failed"
+test "$setup_fail" =  "true" && echo "ERROR: For more information, type \"ups depend lbne_raw_data v1_04_13 -q +nu:+e14:+s50:+debug\""
+test "$setup_fail" =  "true" && echo "                             or \"ups list -aK+ lbne_raw_data v1_04_13\""
+test "$setup_fail" =  "true" && return 1
+set_ setup_fail="false"
+setup -B dune_pardata v01_17_00 
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B dune_pardata v01_17_00 failed"
+test "$setup_fail" =  "true" && echo "ERROR: For more information, type \"ups depend dune_pardata v01_17_00\""
+test "$setup_fail" =  "true" && echo "                             or \"ups list -aK+ dune_pardata v01_17_00\""
+test "$setup_fail" =  "true" && return 1
+set_ setup_fail="false"
+setup -B genie_xsec v2_12_0 -q +DefaultPlusMECWithNC
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B genie_xsec v2_12_0 -q +DefaultPlusMECWithNC failed"
+test "$setup_fail" =  "true" && echo "ERROR: For more information, type \"ups depend genie_xsec v2_12_0 -q +DefaultPlusMECWithNC\""
+test "$setup_fail" =  "true" && echo "                             or \"ups list -aK+ genie_xsec v2_12_0\""
+test "$setup_fail" =  "true" && return 1
+set_ setup_fail="false"
+setup -B genie_phyopt v2_12_0 -q +dkcharmtau
+test "$?" = 0 || set_ setup_fail="true"
+test "$setup_fail" =  "true" && echo "ERROR: setup -B genie_phyopt v2_12_0 -q +dkcharmtau failed"
+test "$setup_fail" =  "true" && echo "ERROR: For more information, type \"ups depend genie_phyopt v2_12_0 -q +dkcharmtau\""
+test "$setup_fail" =  "true" && echo "                             or \"ups list -aK+ genie_phyopt v2_12_0\""
+test "$setup_fail" =  "true" && return 1

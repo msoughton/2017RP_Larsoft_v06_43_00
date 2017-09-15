@@ -1,0 +1,13 @@
+{ decls }
+namespace dunemix {  }
+namespace std {  }
+namespace art {  }
+namespace art { template <typename T> class Wrapper; }
+
+[ libdune_DataOverlay_DataOverlayProducts_dict.so ]
+# List of selected classes
+class art::Wrapper<std::vector<dunemix::EventMixingSummary> >
+class art::Wrapper<vector<dunemix::EventMixingSummary> >
+class dunemix::EventMixingSummary
+class vector<dunemix::EventMixingSummary>
+header EventMixingSummary.h

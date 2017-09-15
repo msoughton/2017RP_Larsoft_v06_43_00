@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cvmfs/fermilab.opensciencegrid.org/products/larsoft/canvas/v2_00_02/include/canvas/Persistency/Provenance/Timestamp.h
+cstdint
+-
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DuneCommon/DuneTimeConverter.h
+stdint.h
+-
+string
+-
+canvas/Persistency/Provenance/Timestamp.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DuneCommon/canvas/Persistency/Provenance/Timestamp.h
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DuneCommon/test/test_DuneTimeConverter.cxx
+../DuneTimeConverter.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DuneCommon/DuneTimeConverter.h
+string
+-
+iostream
+-
+iomanip
+-
+cassert
+-
+

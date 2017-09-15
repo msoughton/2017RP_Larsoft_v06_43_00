@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataOverlay/DataOverlayProducts/EventMixingSummary.cxx
+EventMixingSummary.h
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataOverlay/DataOverlayProducts/EventMixingSummary.h
+
+/dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DataOverlay/DataOverlayProducts/EventMixingSummary.h
+stdint.h
+-
+

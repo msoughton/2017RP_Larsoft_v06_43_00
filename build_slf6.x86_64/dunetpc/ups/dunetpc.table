@@ -1,0 +1,131 @@
+File    = table
+Product = dunetpc
+
+#*************************************************
+# Starting Group definition
+Group:
+
+Flavor     = ANY
+Qualifiers = "e14:debug"
+
+
+  Action = GetFQDir
+    if ( printenv CET_SUBDIR > /dev/null )
+      envSet( ${UPS_PROD_NAME_UC}_FQ_DIR, ${${UPS_PROD_NAME_UC}_DIR}/${CET_SUBDIR}.e14.debug )
+    else()
+      envSet( ${UPS_PROD_NAME_UC}_FQ_DIR, ${${UPS_PROD_NAME_UC}_DIR}/`get-directory-name subdir`.e14.debug )
+    endif ( printenv CET_SUBDIR > /dev/null )
+    fileTest( ${${UPS_PROD_NAME_UC}_FQ_DIR}, -d, "${${UPS_PROD_NAME_UC}_FQ_DIR} directory not found: SETUP ABORTED")
+
+  Action = GetProducts
+    envSet( ${UPS_PROD_NAME_UC}_CXXFLAGS, "-g -gdwarf-2 -O0 -std=c++14" )
+    envSet( ${UPS_PROD_NAME_UC}_CFLAGS, "-g -gdwarf-2 -O0" )
+    setupRequired( larsoft v06_43_00 -q +e14:+debug )
+    setupOptional( duneutil v06_42_00 -q +e14:+debug )
+    setupRequired( artdaq_core v1_07_08 -q +e14:+nu:+s50:+debug )
+    setupRequired( lbne_raw_data v1_04_13 -q +e14:+nu:+s50:+debug )
+    setupRequired( dune_pardata v01_17_00 )
+    setupRequired( genie_xsec v2_12_0 -q +DefaultPlusMECWithNC )
+    setupRequired( genie_phyopt v2_12_0 -q +dkcharmtau )
+
+Flavor     = ANY
+Qualifiers = "e14:opt"
+
+
+  Action = GetFQDir
+    if ( printenv CET_SUBDIR > /dev/null )
+      envSet( ${UPS_PROD_NAME_UC}_FQ_DIR, ${${UPS_PROD_NAME_UC}_DIR}/${CET_SUBDIR}.e14.opt )
+    else()
+      envSet( ${UPS_PROD_NAME_UC}_FQ_DIR, ${${UPS_PROD_NAME_UC}_DIR}/`get-directory-name subdir`.e14.opt )
+    endif ( printenv CET_SUBDIR > /dev/null )
+    fileTest( ${${UPS_PROD_NAME_UC}_FQ_DIR}, -d, "${${UPS_PROD_NAME_UC}_FQ_DIR} directory not found: SETUP ABORTED")
+
+  Action = GetProducts
+    envSet( ${UPS_PROD_NAME_UC}_CXXFLAGS, "-O3 -g -gdwarf-2 -std=c++14" )
+    envSet( ${UPS_PROD_NAME_UC}_CFLAGS, "-O3 -g -gdwarf-2" )
+    setupRequired( larsoft v06_43_00 -q +e14:+opt )
+    setupOptional( duneutil v06_42_00 -q +e14:+opt )
+    setupRequired( artdaq_core v1_07_08 -q +e14:+nu:+s50:+opt )
+    setupRequired( lbne_raw_data v1_04_13 -q +e14:+nu:+s50:+prof )
+    setupRequired( dune_pardata v01_17_00 )
+    setupRequired( genie_xsec v2_12_0 -q +DefaultPlusMECWithNC )
+    setupRequired( genie_phyopt v2_12_0 -q +dkcharmtau )
+
+Flavor     = ANY
+Qualifiers = "e14:prof"
+
+
+  Action = GetFQDir
+    if ( printenv CET_SUBDIR > /dev/null )
+      envSet( ${UPS_PROD_NAME_UC}_FQ_DIR, ${${UPS_PROD_NAME_UC}_DIR}/${CET_SUBDIR}.e14.prof )
+    else()
+      envSet( ${UPS_PROD_NAME_UC}_FQ_DIR, ${${UPS_PROD_NAME_UC}_DIR}/`get-directory-name subdir`.e14.prof )
+    endif ( printenv CET_SUBDIR > /dev/null )
+    fileTest( ${${UPS_PROD_NAME_UC}_FQ_DIR}, -d, "${${UPS_PROD_NAME_UC}_FQ_DIR} directory not found: SETUP ABORTED")
+
+  Action = GetProducts
+    envSet( ${UPS_PROD_NAME_UC}_CXXFLAGS, "-O3 -g -gdwarf-2 -fno-omit-frame-pointer -std=c++14" )
+    envSet( ${UPS_PROD_NAME_UC}_CFLAGS, "-O3 -g -gdwarf-2 -fno-omit-frame-pointer" )
+    setupRequired( larsoft v06_43_00 -q +e14:+prof )
+    setupOptional( duneutil v06_42_00 -q +e14:+prof )
+    setupRequired( artdaq_core v1_07_08 -q +e14:+nu:+s50:+prof )
+    setupRequired( lbne_raw_data v1_04_13 -q +e14:+nu:+s50:+prof )
+    setupRequired( dune_pardata v01_17_00 )
+    setupRequired( genie_xsec v2_12_0 -q +DefaultPlusMECWithNC )
+    setupRequired( genie_phyopt v2_12_0 -q +dkcharmtau )
+
+
+Common:
+  Action = setup
+    prodDir()
+    setupEnv()
+    envSet(${UPS_PROD_NAME_UC}_VERSION, v06_43_00)
+    # cetpkgsupport has get-directory-name and find-path
+    # cetpkgsupport also defines the CET_SUBDIR variable
+    setupRequired(cetpkgsupport)
+    exeActionRequired(GetFQDir)
+    envSet(${UPS_PROD_NAME_UC}_INC, ${UPS_PROD_DIR}/include) 
+
+    exeActionRequired(GetProducts)
+
+    envSet(${UPS_PROD_NAME_UC}_LIB, ${${UPS_PROD_NAME_UC}_FQ_DIR}/lib) 
+    if ( test `uname` = "Darwin" )
+      pathPrepend(DYLD_LIBRARY_PATH, ${${UPS_PROD_NAME_UC}_LIB})
+    else()
+      pathPrepend(LD_LIBRARY_PATH, ${${UPS_PROD_NAME_UC}_LIB})
+    endif ( test `uname` = "Darwin" )
+
+    # add the bin directory to the path
+    pathPrepend(PATH, ${${UPS_PROD_NAME_UC}_FQ_DIR}/bin )
+    # dropit -E removes non-existent directories
+    Execute(dropit -E, NO_UPS_ENV, PATH)
+
+    # add the fcl directory to the path
+    pathPrepend(FHICL_FILE_PATH, ${UPS_PROD_DIR}/job )
+    # add ${UPS_PROD_DIR}/config_data to FW_SEARCH_PATH
+    pathPrepend(FW_SEARCH_PATH, ${UPS_PROD_DIR}/config_data )
+    # add ${UPS_PROD_DIR}/gdml directory to FW_SEARCH_PATH
+    pathPrepend(FW_SEARCH_PATH, ${UPS_PROD_DIR}/gdml )
+    # Prepend CMAKE_PREFIX_PATH for flavour qualified product
+    pathPrepend(CMAKE_PREFIX_PATH, ${${UPS_PROD_NAME_UC}_FQ_DIR})
+    pathPrepend(PKG_CONFIG_PATH, ${${UPS_PROD_NAME_UC}_FQ_DIR})
+    # Prepend ROOT_INCLUDE_PATH for dictionaries
+    pathPrepend(ROOT_INCLUDE_PATH, ${${UPS_PROD_NAME_UC}_INC}) 
+
+    pathPrepend(FW_SEARCH_PATH, ${DUNETPC_DIR}/scripts)
+    pathPrepend(FW_SEARCH_PATH, ${DUNETPC_DIR}/gdml)
+    pathPrepend(FW_SEARCH_PATH, ${DUNE_PARDATA_DIR}/FieldResponse)
+    pathPrepend(FHICL_FILE_PATH, .:./job)
+    envSet(DBIWSPWDFILE, /dune/experts/path/to/proddbpwd/for/writes)
+    envSet(DBIWSURL, http://dbdata0vm.fnal.gov:8116/LBNE35tCon/app/)
+    envSet(DBIWSURLINT, http://dbdata0vm.fnal.gov:8116/LBNE35tCon/app/)
+    envSet(DBIWSURLPUT, http://dbdata0vm.fnal.gov:8117/LBNE35tCon/app/)
+    envSet(DBIQEURL, http://dbdata0vm.fnal.gov:8122/QE/dune35t/prod/app/SQ/)
+    envSet(DBIHOST, ifdbprod.fnal.gov)
+    envSet(DBINAME, dune35t_prod)
+    envSet(DBIPORT, 5442)
+    envSet(DBIUSER, dune_reader)
+    envSet(DBIPWDFILE, ~jpaley/dune/db/proddbpwd)
+End:
+# End Group definition
+#*************************************************

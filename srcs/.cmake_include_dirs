@@ -1,0 +1,5 @@
+# DO NOT DELETE 
+# dunetpc package block
+set(dunetpc_not_in_ups true)
+include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/dunetpc )
+include_directories ( $ENV{MRB_BUILDDIR}/dunetpc )

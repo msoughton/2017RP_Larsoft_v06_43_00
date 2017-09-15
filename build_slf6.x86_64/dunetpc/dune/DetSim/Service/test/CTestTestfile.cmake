@@ -1,0 +1,12 @@
+# CMake generated Testfile for 
+# Source directory: /dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc/dune/DetSim/Service/test
+# Build directory: /dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/dune/DetSim/Service/test
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(test_LarsoftHuffmanCompressService "/cvmfs/fermilab.opensciencegrid.org/products/larsoft/cetbuildtools/v5_09_01/bin/cet_exec_test" "--wd" "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/dune/DetSim/Service/test/test_LarsoftHuffmanCompressService.d" "--required-files" "" "--datafiles" "" "--skip-return-code" "247" "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/bin/test_LarsoftHuffmanCompressService")
+set_tests_properties(test_LarsoftHuffmanCompressService PROPERTIES  SKIP_RETURN_CODE "247" WORKING_DIRECTORY "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/dune/DetSim/Service/test/test_LarsoftHuffmanCompressService.d")
+add_test(test_FixedDetPedestalService "/cvmfs/fermilab.opensciencegrid.org/products/larsoft/cetbuildtools/v5_09_01/bin/cet_exec_test" "--wd" "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/dune/DetSim/Service/test/test_FixedDetPedestalService.d" "--required-files" "" "--datafiles" "" "--skip-return-code" "247" "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/bin/test_FixedDetPedestalService")
+set_tests_properties(test_FixedDetPedestalService PROPERTIES  SKIP_RETURN_CODE "247" WORKING_DIRECTORY "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/dune/DetSim/Service/test/test_FixedDetPedestalService.d")
+add_test(test_ExponentialChannelNoiseService "/cvmfs/fermilab.opensciencegrid.org/products/larsoft/cetbuildtools/v5_09_01/bin/cet_exec_test" "--wd" "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/dune/DetSim/Service/test/test_ExponentialChannelNoiseService.d" "--required-files" "" "--datafiles" "" "--skip-return-code" "247" "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/bin/test_ExponentialChannelNoiseService")
+set_tests_properties(test_ExponentialChannelNoiseService PROPERTIES  SKIP_RETURN_CODE "247" WORKING_DIRECTORY "/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/dune/DetSim/Service/test/test_ExponentialChannelNoiseService.d")

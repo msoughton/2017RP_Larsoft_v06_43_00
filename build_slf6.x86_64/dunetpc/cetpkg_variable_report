@@ -1,0 +1,13 @@
+
+CETPKG_NAME             dunetpc
+CETPKG_VERSION          v06_43_00
+CETPKG_DEFAULT_VERSION  none
+CETPKG_QUAL             e14:debug
+CETPKG_TYPE             Debug
+CETPKG_SOURCE           /dune/app/users/soughton/larsoft_v06_43_00/srcs
+CETPKG_BUILD            /dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc
+CETPKG_CC               gcc
+CETPKG_CXX              g++
+CETPKG_FC               gfortran
+CETPKG_ONLY_FOR_BUILD   cetbuildtools;
+to check cmake cached variables, use cmake -N -L

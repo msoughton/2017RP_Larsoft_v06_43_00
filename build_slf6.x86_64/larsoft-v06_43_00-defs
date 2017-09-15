@@ -1,0 +1,13 @@
+# unsetup products we are building
+# set package variables
+setenv  DUNETPC_VERSION v06_43_00
+setenv  DUNETPC_DIR /dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc
+setenv  PATH `dropit -esf -p ${PATH} '/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/bin'`
+setenv  LD_LIBRARY_PATH `dropit -esf -p ${LD_LIBRARY_PATH} '/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/lib'`
+setenv  FHICL_FILE_PATH `dropit -esf -p ${FHICL_FILE_PATH} '/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/job'`
+setenv  FW_SEARCH_PATH `dropit -esf -p ${FW_SEARCH_PATH} '/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/gdml'`
+setenv  FW_SEARCH_PATH `dropit -esf -p ${FW_SEARCH_PATH} '/dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc/config_data'`
+setenv  ROOT_INCLUDE_PATH `dropit -esf -p ${ROOT_INCLUDE_PATH} ${MRB_SOURCE}/dunetpc`
+setenv  ROOT_INCLUDE_PATH `dropit -esf -p ${ROOT_INCLUDE_PATH} /dune/app/users/soughton/larsoft_v06_43_00/build_slf6.x86_64/dunetpc`
+setenv  DUNETPC_INC /dune/app/users/soughton/larsoft_v06_43_00/srcs/dunetpc
+setenv  FHICL_FILE_PATH .:${FHICL_FILE_PATH}

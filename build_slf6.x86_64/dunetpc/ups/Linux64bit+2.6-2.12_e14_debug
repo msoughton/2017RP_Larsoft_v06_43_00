@@ -1,0 +1,13 @@
+FILE = version
+PRODUCT = dunetpc
+VERSION = v06_43_00
+
+FLAVOR = Linux64bit+2.6-2.12
+QUALIFIERS = e14:debug
+  DECLARER = CET
+  DECLARED = Thu Aug 17 08:33:06 CDT 2017
+  MODIFIER = CET
+  MODIFIED = Thu Aug 17 08:33:06 CDT 2017
+  PROD_DIR = dunetpc/v06_43_00
+  UPS_DIR = ups
+  TABLE_FILE = dunetpc.table
